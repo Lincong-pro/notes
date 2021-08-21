@@ -1312,3 +1312,240 @@ axios.patch(url[, data[, config]])
 
 ###### 全局组件使用
 
+##### 组件的Props
+
+> props是组件的自定义属性，在封装通用组件的时候，合理地使用props可以极大的提高组件的复用性！
+
+###### Count组件定义props
+
+```js
+<script>
+export default {
+  data() {
+    return {
+      message: "hello",
+      cnt: 0,
+    };
+  },
+  methods: {
+    add() {
+      this.cnt += 1;
+      this.props.init += 1;
+    },
+  },
+  props: ["init"],//array
+};
+</script>
+```
+
+###### 外部组件使用Count组件
+
+###### Right.vue使用属性
+
+```vue
+<template>
+  <div class="right">
+    <h6>{{ Hello }}</h6>
+    <Count init="9"></Count>
+  </div>
+</template>
+```
+
+![](https://raw.githubusercontent.com/Lincong-pro/C-Properties/master/img/image-20210821204907773.png?token=AQBB52DC6WSEKUMOILUGIGDBED3IG)
+
+> 注意：如果通过**init="9"**的方式给其赋值，最后得到的是字符串类型
+
+* 通过下面的方式变换为js语法进行输入之后就是数值类型
+
+```vue
+<template>
+  <div class="right">
+    <h6>{{ Hello }}</h6>
+    <Count :init="9"></Count>
+  </div>
+</template>
+```
+
+![](https://raw.githubusercontent.com/Lincong-pro/C-Properties/master/img/image-20210821210227497.png?token=AQBB52G2HIFRDBZT6NHFMI3BED42G)
+
+###### props属性是只读
+
+> ​		文档中明确定义自定义的props属性是不可以进行改变的，但是实际上也是可以对其进行改变的，2021的vue课程是显示报错，但是实际操作之后并没有显示报错。
+
+```vue
+<template>
+  <!--click后面接着原生js语法-->
+  <button @click="init += 1">click me</button>
+  <h5>{{ init }}</h5>
+</template>
+
+<script>
+export default {
+  props: ["init"],
+};
+</script>
+```
+
+###### 间接通过props属性获取不同的初值
+
+```vue
+<template>
+  <button @click="add">click me</button>
+  <h5>{{ cnt }}</h5>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      message: "hello",
+      cnt: this.init, // 这个的前提就是props属性一定是在data初始化之前进行赋值
+    };
+  },
+  methods: {
+    add() {
+      this.cnt += 1;
+    },
+  },
+  props: ["init"],
+};
+</script>
+```
+
+![](https://raw.githubusercontent.com/Lincong-pro/C-Properties/master/img/image-20210821230644854.png?token=AQBB52BWV5C7WLY7U4OSZRDBEELMG)
+
+###### props默认值
+
+```vue
+<template>
+  <div class="right">
+    <h6>Hello</h6>
+    <!-- 下面的情况就是外部在使用组件的时候未给props属性赋值 -->
+    <Count></Count>
+  </div>
+</template>
+```
+
+> 上面的情况vue插件中输出的自定义属性值就是undefine
+
+```vue
+<script>
+export default {
+  data() {
+    return {
+      message: "hello",
+      cnt: this.init, // 这个的前提就是props属性一定是在data初始化之前进行赋值
+    };
+  },
+  methods: {
+    add() {
+      this.cnt += 1;
+    },
+  },
+  // props从数组的自定义方式转变为对象的高级定义方式
+  props: {
+    //属性1
+    init: {
+      default: 0,
+    },
+  },
+};
+</script>
+```
+
+> 通过上面的设置props属性就默认设置为0
+
+###### props自定义属性的值类型
+
+```vue
+<script>
+export default {
+  data() {
+    return {
+      message: "hello",
+      cnt: this.init, // 这个的前提就是props属性一定是在data初始化之前进行赋值
+    };
+  },
+  methods: {
+    add() {
+      this.cnt += 1;
+    },
+  },
+  // props从数组的自定义方式转变为对象的高级定义方式
+  props: {
+    //属性1
+    init: {
+      default: 0,
+      // Array Object Number Function Null Boolean,如果指定了该类型不执行就会发出警告
+      type: Number,
+    },
+  },
+};
+</script>
+```
+
+![](https://raw.githubusercontent.com/Lincong-pro/C-Properties/master/img/image-20210821232626828.png?token=AQBB52GS7AYYRTKCIOY2FILBEENWK)
+
+###### 属性必须赋值的选项
+
+```js
+// props从数组的自定义方式转变为对象的高级定义方式
+  props: {
+    //属性1
+    init: {
+      default: 0,
+      // Array Object Number Function Null Boolean,如果指定了该类型不执行就会报错
+      type: Number,
+      // 必须校验项
+      required: true,
+    },
+  },
+```
+
+> 警告信息如下
+
+<img src="https://raw.githubusercontent.com/Lincong-pro/C-Properties/master/img/image-20210821233539812.png?token=AQBB52FXYGHJPETLJXJQ26LBEEOYW" alt="image-20210821233539812" style="zoom:150%;" />
+
+#### VuePress笔记文档部署
+
+##### 小试牛刀
+
+```shell
+# 安装
+npm install -g vuepress
+# 新建一个 markdown 文件
+echo '# Hello VuePress!' > README.md
+# 开始写作
+vuepress dev .
+# 构建静态文件
+vuepress build .
+```
+
+##### 快速上手VuePress
+
+###### 修改package.json
+
+```json
+{
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
+}
+```
+
+###### 部署vue项目
+
+```shell
+# VuePress 会在 http://localhost:8080 (opens new window)启动一个热重载的开发服务器。
+npm run docs:dev
+```
+
+###### 默认的路由地址
+
+| 文件的相对路径     | 页面路由地址   |
+| ------------------ | -------------- |
+| `/README.md`       | `/`            |
+| `/guide/README.md` | `/guide/`      |
+| `/config.md`       | `/config.html` |
+
