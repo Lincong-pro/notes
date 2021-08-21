@@ -6,7 +6,7 @@ Hello sphinx
 .. toctree::
    :maxdepth: 2
 
-   CMake
+   CMake.md
 
 
 

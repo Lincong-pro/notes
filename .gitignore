@@ -1,0 +1,17 @@
+# 这个gitignore是使用最受欢迎的.gitignore插件提供
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
+build/
+build_float/
+#下面这个的用处就是匹配所有以build开头的文件不上传
+build*/
+.idea/
+.idea/*xml
+.idea/inspectionProfiles

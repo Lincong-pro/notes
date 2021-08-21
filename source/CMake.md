@@ -110,8 +110,6 @@
 
 2. 点上传按钮（保留颜色并提交）
 
-   ![59331725820](C:\Users\kandy\AppData\Local\Temp\1593317258207.png)
-
 3. 生成之后加入购物车即可
 
 4. 点击下载 --- 下载代码
@@ -177,7 +175,6 @@ git 可以把我们的本地网站提交上传到远程仓库（码云 gitee）�
      ```
 
 3. 码云部署发布静态网站
-
 
 最后： 如果提交网站，你不愿意用 git 提交， 可以直接找到仓库，里面有文件，选择上传本地文件即可。
 
@@ -299,7 +296,7 @@ target_link_libraries(test_exe archive)
   # target exe2连接动态库lib1
   target_link_libraries(exe2 lib1)
   对于compile_definition中的position_independent_code对于编译的动态库而言是默认设置的。
-  
+
   ```
 
   接下来演示不兼容的情况
@@ -307,18 +304,18 @@ target_link_libraries(test_exe archive)
   ```cmake
   add_library(lib1 SHARED lib1.cpp)
   set_property(TARGET lib1 PROPERTY INTERFACE_POSITION_INDEPENDENT_CODE ON)
-  
+
   add_library(lib2 SHARED lib2.cpp)
   set_property(TARGET lib2 PROPERTY INTERFACE_POSITION_INDEPENDENT_CODE OFF)
-  
+
   add_executable(exe1 exe1.cpp)
   target_link_libraries(exe1 lib1)
   set_property(TARGET exe1 PROPERTY POSITION_INDEPENDENT_CODE OFF)
-  
+
   add_executable(exe2 exe2.cpp)
   # 同时连接到两个不相互兼容的库
   target_link_libraries(exe2 lib1 lib2)
-  
+
   ```
 
   ```
