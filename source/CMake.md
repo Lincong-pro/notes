@@ -90,7 +90,7 @@
 
 3. 充电学习 阴影
 
-   ```css
+   ```html
    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
    ```
 
