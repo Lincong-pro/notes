@@ -11,6 +11,7 @@ Hello sphinx
    vue_note
    thread
    throws
+   string
    git
 
 
