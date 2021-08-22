@@ -1506,7 +1506,7 @@ export default {
 
 <img src="https://raw.githubusercontent.com/Lincong-pro/C-Properties/master/img/image-20210821233539812.png?token=AQBB52FXYGHJPETLJXJQ26LBEEOYW" alt="image-20210821233539812" style="zoom:150%;" />
 
-![test](https://raw.githubusercontent.com/Lincong-pro/C-Properties/master/img/image-20210821235001663.png?token=AQBB52F5BETRRLQ3A5YATV3BEEQOQ)
+![image-20210822075211688](../../../../../AppData/Roaming/Typora/typora-user-images/image-20210822075211688.png)
 
 #### VuePress笔记文档部署
 
