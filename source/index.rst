@@ -1,4 +1,4 @@
-Welcome to cmake's documentation!
+iWelcome to cmake's documentation!
 =================================
 
 Hello sphinx
@@ -9,7 +9,6 @@ Hello sphinx
    CMake
    chapter1
    vue_note
-   ËÄ¡¢Ïß³Ì
    throws
 
 
