@@ -9,7 +9,7 @@ Hello sphinx
    CMake
    chapter1
    vue_note
-   �ġ��߳�
+   thread
 
 
 
