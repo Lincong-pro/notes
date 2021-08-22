@@ -1,4 +1,4 @@
-iWelcome to cmake's documentation!
+Welcome to cmake's documentation!
 =================================
 
 Hello sphinx
