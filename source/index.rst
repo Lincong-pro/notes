@@ -10,6 +10,7 @@ Hello sphinx
    chapter1
    vue_note
    ËÄ¡¢Ïß³Ì
+   throws
 
 
 
