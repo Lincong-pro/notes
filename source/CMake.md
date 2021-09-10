@@ -1,215 +1,35 @@
-## 黑马面面布局开发
-
-### 一、目的
-
-1. 了解移动端页面开发流程
-2. 掌握移动端常见布局思路
-
-#### 1.1 技术方案
-
-```css
-1. 弹性盒子 + rem + LESS
-4. 最小适配设备为iphone5 320px  最大设配设备为iphone8plus(ipad能正常查看内容即可)
-```
-
-#### 1.2 代码规范
-
-```css
-1. 类名语义化,尽量精短、明确，必须以字母开头命名，且全部字母为小写，单词之间统一使用下划线“_” 连接
-2. 类名嵌套层次尽量不超过三层
-3. 尽量避免直接使用元素选择器
-4. 属性书写顺序
-   布局定位属性：display / position / float / clear / visibility / overflow
-   尺寸属性：width / height / margin / padding / border / background
-   文本属性：color / font / text-decoration / text-align / vertical-align
-   其他属性（CSS3）：content / cursor / border-radius / box-shadow / text-shadow
-5. 避免使用id选择器
-6. 避免使用通配符*和!important
-```
-
-#### 1.2 目录规范
-
-```css
-项目文件夹：heimamm
-	样式文件夹：css
-	业务类图片文件夹：images
-	样式类图片文件夹： icons
-	字体类文件夹： fonts
-```
-
-### 二、流程开发
-
-#### 2.1 蓝湖/摹客协作平台
-
-- UI 设计师 psd 效果图完成后，会上传到蓝湖//摹客里面，同时会拉前端工程师进入开发
-- 大部分情况下，UI 会把图片按照前端设计要求给切好
-- UI 设计师 上传蓝湖到或者/摹客（了解）
-
-```css
-1. /摹客官网地址： https://www.mockplus.cn/  注册一个账号
-2. 下载moke  ps插件
-3. PS 安装/摹客/蓝湖插件
-3. 打开PS/摹客/蓝湖插件
-4. 上传（需要切图，需要先标注切图）
-5. 查看项目
-6. 邀请成员进入（分享按钮，链接地址）
-```
-
-- 前端设计师可以直接/摹客/蓝湖测量取值
-
-#### 2.2 适配方案
-
-- flex 布局
-- 百分比布局
-- rem 布局
-- vw/vh 布局
-- 响应式布局
-- 本次案例 flex + rem + + flexible.js + LESS
-
-#### 2.3 初始化文件
-
-- 引入 normalize.css
-
-- less 中 初始化 body 样式
-
-- 约束范围
-
-- ```css
-  @media screen and (min-width: 750px) {
-    html {
-      font-size: 37.5px !important;
-    }
-  }
-  ```
-
-#### 2.4 布局模块
-
-1. 头部模块 .header 高度为 80px
-
-2. nav 模块制作 多用 flex
-
-3. 充电学习 阴影
-
-   ```html
-   box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
-   ```
-
-#### 2.5 swiper 插件使用
-
-官网地址：<https://www.swiper.com.cn/>
-
-- 下载需要的 css 和 js 文件 html 页面中 引入相关文件
-- 官网找到类似案例，复制 html 结构，css 样式 js 语法
-- 根据需求定制修改模块
-
-#### 2.6 图标字体上传下载
-
-上传步骤：
-
-1. 让 UI 美工准备好 图标字体（必须是 svg 格式）
-
-2. 点上传按钮（保留颜色并提交）
-
-3. 生成之后加入购物车即可
-
-4. 点击下载 --- 下载代码
-
-小技巧： 如何批量下载全部字体图标呢？
-
-```javascript
-var span = document.querySelectorAll(".icon-cover");
-for (var i = 0, len = span.length; i < len; i++) {
-  console.log(span[i].querySelector("span").click());
-}
-```
-
-#### 2.7 上传码云并发布部署静态网站
-
-准备工作： 需要下载 git 软件 需要码云注册账号
-
-git 可以把我们的本地网站提交上传到远程仓库（码云 gitee）里面 类似以前的 ftp
-
-码云 就是远程仓库， 类似服务器
-
-1. 码云创建新的仓库。 heimamm
-
-2. 利用 git 提交 把本地网站提交到 码云新建的仓库里面
-
-   - 在网站根目录右键-- Git Bash Here
-
-   - 如果是第一次利用 git 提交，请配置好全局选项
-
-     ```javascript
-     git config --global user.name "用户名"
-     git config --global user.email "你的邮箱地址"
-     ```
-
-   - 初始化仓库
-
-     ```javascript
-     git init
-     ```
-
-   - 把本地文件放到暂存区
-
-     ```javascript
-     git add .
-     ```
-
-   - 把本地文件放到本地仓库里面
-
-     ```javascript
-     git commit -m '提交黑马面面网站'
-     ```
-
-   - 链接远程仓库
-
-     ```javascript
-     git remote add origin 你新建的仓库地址
-     ```
-
-   - 把本地仓库的文件推送到远程仓库 push
-
-     ```javascript
-     git push -u origin master
-     ```
-
-3. 码云部署发布静态网站
-
-最后： 如果提交网站，你不愿意用 git 提交， 可以直接找到仓库，里面有文件，选择上传本地文件即可。
-
-但是，1 个小时内，只能上传 20 个以内的文件， 前端人员，git 必备技能
-
 ## CMake 官方文档学习
 
 ### build targets
 
+```cmake
 add_library(archive MODULE 7Z.cpp) //不生成.so 或者.a 文件
-模块的特点就是不需要链接，只有在运行的时候才会选择性的去加载，所以不需要 target_link_libraries()
+# 模块的特点就是不需要链接，只有在运行的时候才会选择性的去加载，所以不需要 target_link_libraries()
 add_library(archive SHARED 7Z.cpp) //生成.so 动态文件
 add_library(archive STATIC 7Z.cpp) //生成.a 静态库
-除了上面的选项，我们仍然可以给我们编译的库指定框架（即哪一个系统下才能使用这个库）
+# 除了上面的选项，我们仍然可以给我们编译的库指定框架（即哪一个系统下才能使用这个库）
 add_library(MyFramework SHARED MyFramework.cpp)
 set_target_properties(MyFramework PROPERTIES
 FRAMEWORK TRUE
 FRAMEWORK_VERSION A # Version "A" is macOS convention
 MACOSX_FRAMEWORK_IDENTIFIER org.cmake.MyFramework
 )
-当然我们还有一个选项就是将我们所编译的库连接到另外一个库上面
-前提条件就是我们所编译的库必须指定编译类型为 OBJECT 类型，然后
-在另外一个库使用$<TARGET_OBJECT:objectlibname>进行连接，当然
-也可以直接使用 target_link_libraries 进行连接
+# 当然我们还有一个选项就是将我们所编译的库连接到另外一个库上面
+# 前提条件就是我们所编译的库必须指定编译类型为 OBJECT 类型，然后
+# 在另外一个库使用$<TARGET_OBJECT:objectlibname>进行连接，当然
+# 也可以直接使用 target_link_libraries 进行连接
 add_library(archive OBJECT archive.cpp zip.cpp lzma.cpp)
 add_library(archiveExtras STATIC $<TARGET_OBJECTS:archive> extras.cpp)
 add_executable(test_exe $<TARGET_OBJECTS:archive> test.cpp)
 
-当然除了库可以连接 OBJECT 类型的 object 库之外，其他的 executable target
-仍然可以连接这个库，即可以多次连接
+# 当然除了库可以连接 OBJECT 类型的 object 库之外，其他的 executable target
+# 仍然可以连接这个库，即可以多次连接
 add_library(archive OBJECT archive.cpp zip.cpp lzma.cpp)
 add_library(archiveExtras STATIC extras.cpp)
 target_link_libraries(archiveExtras PUBLIC archive)
 add_executable(test_exe test.cpp)
 target_link_libraries(test_exe archive)
+```
 
 - target_include_directories、target_compile_definitions、target_compile_options 分别为 include_directories、compile_definitions、compile_options 的补充（扩展）
 
@@ -224,7 +44,7 @@ target_link_libraries(test_exe archive)
 
 - 我们在胡老师的脚本 sh 脚本中经常会看见-D、-I 之类的，实际上官方文档的解释就是-D 就是 COMILE_DEFINITIONS.-I 代表 INCLUDE_DIRECTORIES
 
-  ```
+  ```cmake
   # 将后面的cpp编译为源文件
   set(srcs archive.cpp zip.cpp)
   # 如果找到了这个库就向上面的srcs增加一个编译的cpp
@@ -296,7 +116,7 @@ target_link_libraries(test_exe archive)
   # target exe2连接动态库lib1
   target_link_libraries(exe2 lib1)
   对于compile_definition中的position_independent_code对于编译的动态库而言是默认设置的。
-
+  
   ```
 
   接下来演示不兼容的情况
@@ -304,34 +124,299 @@ target_link_libraries(test_exe archive)
   ```cmake
   add_library(lib1 SHARED lib1.cpp)
   set_property(TARGET lib1 PROPERTY INTERFACE_POSITION_INDEPENDENT_CODE ON)
-
+  
   add_library(lib2 SHARED lib2.cpp)
   set_property(TARGET lib2 PROPERTY INTERFACE_POSITION_INDEPENDENT_CODE OFF)
-
+  
   add_executable(exe1 exe1.cpp)
   target_link_libraries(exe1 lib1)
   set_property(TARGET exe1 PROPERTY POSITION_INDEPENDENT_CODE OFF)
-
+  
   add_executable(exe2 exe2.cpp)
   # 同时连接到两个不相互兼容的库
   target_link_libraries(exe2 lib1 lib2)
-
+  
   ```
 
-  ```
+  ```shell
   # 假设我们的lib1和lib2不兼容，其中的lib1要求独立编译的方式进行编译，lib2要求非独立编译，然后当我们的exe2连接到两个属性要求不一致的库之后就出现了如下问题
   CMake Error: The INTERFACE_POSITION_INDEPENDENT_CODE property of "lib2" does
   not agree with the value of POSITION_INDEPENDENT_CODE already determined
   for "exe2".
   ```
 
+#### 头文件包含
+
+##### 同时包含源目录和生成目录
+
+```cmake
+# add the build directory and source directory
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+```
+
+> 效果如下所示
+
+![](https://raw.githubusercontent.com/Lincong-pro/C-Properties/master/img/image-20210823104540679.png)
+
+##### 包含当前Source目录
+
+```cmake
+# 在生成target之前使用以下命令
+include_directories (${CMAKE_SOURCE_DIR})
+
+# 在生成target之后使用以下命令
+# 链接添加当前文件夹以便于包含头文件
+target_include_directories(${exeName}
+  PUBLIC
+    ${CMAKE_CURRENT_LIST_DIR} #or ${CMAKE_CURRENT_SOURCE_DIR}
+  )
+```
+
+![](https://raw.githubusercontent.com/Lincong-pro/C-Properties/master/img/image-20210823105122780.png)
+
+#### 包含当前Binary目录
+
+```shell
+# 在生成target之前使用以下命令
+include_directories (${CMAKE_BINARY_DIR})
+
+# 在生成target之后使用以下命令
+# 链接添加当前文件夹以便于包含头文件
+target_include_directories(${exeName}
+  PUBLIC
+    ${CMAKE_CURRENT_BINARY_DIR}
+  )
+```
+
 #### GDAL 库链接
 
 ```cmake
 # 引入Boost库的头文件 和 GDAL的头文件
 target_include_directories(${PROJECT_NAME}
-    PUBLIC ${Boost_INCLUDE_DIR} ${GDAL_INCLUDE_DIR}
+    PUBLIC ${GDAL_INCLUDE_DIR}
 )
 # 引入Boost库的lib文件 和 GDAL的lib文件
-target_link_libraries(lincong ${Boost_LIBRARIES} ${GDAL_LIBRARY})
+target_link_libraries(lincong ${GDAL_LIBRARY})
 ```
+
+#### 检索库模块
+
+> tbb库 ttb/ttb_stddef.h was removed from ttbb 2021.1. Replace ttb/ttb_stddef.h with oneapi/tbb/version.h in FindTBB.cmake
+
+```cmake
+# Find each component
+  foreach(_comp ${TBB_SEARCH_COMPOMPONENTS})
+    if(";${TBB_FIND_COMPONENTS};tbb;" MATCHES ";${_comp};")
+
+      # Search for the libraries
+      find_library(TBB_${_comp}_LIBRARY_RELEASE ${_comp}
+          HINTS ${TBB_LIBRARY} ${TBB_SEARCH_DIR}
+          PATHS ${TBB_DEFAULT_SEARCH_DIR} ENV LIBRARY_PATH
+          PATH_SUFFIXES ${TBB_LIB_PATH_SUFFIX})
+
+      find_library(TBB_${_comp}_LIBRARY_DEBUG ${_comp}_debug
+          HINTS ${TBB_LIBRARY} ${TBB_SEARCH_DIR}
+          PATHS ${TBB_DEFAULT_SEARCH_DIR} ENV LIBRARY_PATH
+          PATH_SUFFIXES ${TBB_LIB_PATH_SUFFIX})
+
+      if(TBB_${_comp}_LIBRARY_DEBUG)
+        list(APPEND TBB_LIBRARIES_DEBUG "${TBB_${_comp}_LIBRARY_DEBUG}")
+      endif()
+      if(TBB_${_comp}_LIBRARY_RELEASE)
+        list(APPEND TBB_LIBRARIES_RELEASE "${TBB_${_comp}_LIBRARY_RELEASE}")
+      endif()
+      if(TBB_${_comp}_LIBRARY_${TBB_BUILD_TYPE} AND NOT TBB_${_comp}_LIBRARY)
+        set(TBB_${_comp}_LIBRARY "${TBB_${_comp}_LIBRARY_${TBB_BUILD_TYPE}}")
+      endif()
+
+      if(TBB_${_comp}_LIBRARY AND EXISTS "${TBB_${_comp}_LIBRARY}")
+        set(TBB_${_comp}_FOUND TRUE)
+      else()
+        set(TBB_${_comp}_FOUND FALSE)
+      endif()
+      # Mark internal variables as advanced
+      mark_as_advanced(TBB_${_comp}_LIBRARY_RELEASE)
+      mark_as_advanced(TBB_${_comp}_LIBRARY_DEBUG)
+      mark_as_advanced(TBB_${_comp}_LIBRARY) 
+    endif()
+  endforeach()
+```
+
+#### 查找components实质
+
+##### 查找库
+
+```cmake
+if (WIN32)
+    if(CYGWIN)
+        find_library( GLFW_glfw_LIBRARY 
+            NAMES
+                glfw32
+            HINTS
+                "${GLFW_LOCATION}/lib"
+                "${GLFW_LOCATION}/lib/x64"
+                "$ENV{GLFW_LOCATION}/lib"
+            PATHS
+                "${OPENGL_LIBRARY_DIR}"
+                /usr/lib
+                /usr/lib/w32api
+                /usr/local/lib
+                "${GLFW_X11_LIB_DIRS}"
+            DOC 
+                "The GLFW library"
+        )
+    else()
+        find_library( GLFW_glfw_LIBRARY
+            NAMES
+            # Windows中查找库的名字
+                glfw32 
+                glfw32s 
+                glfw
+                glfw3
+                glfw3dll
+            HINTS
+                "${GLFW_LOCATION}/lib"
+                "${GLFW_LOCATION}/lib/x64"
+                "${GLFW_LOCATION}/lib-msvc110"
+                "${GLFW_LOCATION}/lib-vc2012"
+                "$ENV{GLFW_LOCATION}/lib"
+                "$ENV{GLFW_LOCATION}/lib/x64"
+                "$ENV{GLFW_LOCATION}/lib-msvc110"
+                "$ENV{GLFW_LOCATION}/lib-vc2012"
+            PATHS
+                "$ENV{PROGRAMFILES}/GLFW/lib"
+                "${OPENGL_LIBRARY_DIR}"
+            DOC 
+                "The GLFW library"
+        )
+    endif()
+else ()
+    if (APPLE)
+        find_library( GLFW_glfw_LIBRARY glfw
+            NAMES 
+                glfw
+                glfw3
+            HINTS
+                "${GLFW_LOCATION}/lib"
+                "${GLFW_LOCATION}/lib/cocoa"
+                "$ENV{GLFW_LOCATION}/lib"
+                "$ENV{GLFW_LOCATION}/lib/cocoa"
+            PATHS
+                /usr/local/lib
+        )
+        set(GLFW_cocoa_LIBRARY "-framework Cocoa" CACHE STRING "Cocoa framework for OSX")
+        set(GLFW_corevideo_LIBRARY "-framework CoreVideo" CACHE STRING "CoreVideo framework for OSX")
+        set(GLFW_iokit_LIBRARY "-framework IOKit" CACHE STRING "IOKit framework for OSX")
+    else ()
+        # (*)NIX
+        
+        find_package(Threads REQUIRED)
+
+        if(NOT NO_GLFW_X11)
+            find_package(X11 REQUIRED)
+
+            if(NOT X11_Xrandr_FOUND)
+                message(FATAL_ERROR "Xrandr library not found - required for GLFW")
+            endif()
+
+            if(NOT X11_xf86vmode_FOUND)
+                message(FATAL_ERROR "xf86vmode library not found - required for GLFW")
+            endif()
+
+            if(NOT X11_Xcursor_FOUND)
+                message(FATAL_ERROR "Xcursor library not found - required for GLFW")
+            endif()
+
+            if(NOT X11_Xinerama_FOUND)
+                message(FATAL_ERROR "Xinerama library not found - required for GLFW")
+            endif()
+
+            if(NOT X11_Xi_FOUND)
+                message(FATAL_ERROR "Xi library not found - required for GLFW")
+            endif()
+
+            list(APPEND GLFW_x11_LIBRARY "${X11_Xrandr_LIB}" "${X11_Xxf86vm_LIB}" "${X11_Xcursor_LIB}" "${X11_Xinerama_LIB}" "${X11_Xi_LIB}" "${X11_LIBRARIES}" "${CMAKE_THREAD_LIBS_INIT}" -lrt -ldl)
+        endif (NOT NO_GLFW_X11)
+
+        find_library( GLFW_glfw_LIBRARY
+            NAMES 
+                glfw
+                glfw3
+            HINTS
+                "${GLFW_LOCATION}/lib"
+                "$ENV{GLFW_LOCATION}/lib"
+                "${GLFW_LOCATION}/lib/x11"
+                "$ENV{GLFW_LOCATION}/lib/x11"
+            PATHS
+                /usr/lib64
+                /usr/lib
+                /usr/lib/${CMAKE_LIBRARY_ARCHITECTURE}
+                /usr/local/lib64
+                /usr/local/lib
+                /usr/local/lib/${CMAKE_LIBRARY_ARCHITECTURE}
+                /usr/openwin/lib
+                "${GLFW_X11_LIB_DIRS}"
+            DOC 
+                "The GLFW library"
+        )
+    endif (APPLE)
+endif (WIN32)
+```
+
+* 之前编译一个库OpenSubdiv就出现了（missing GLFW_LIB,found xxx version）
+
+  > 上面的意思就是我们已经检查到用户已经安装了某个版本的库，但是仍然显示没有查找到该定义的库，于是你就需要查找**find_library()内容以及自己真实编译的库**，比如下面的anaconda安装的库
+
+  ![image-20210826123844225](https://raw.githubusercontent.com/Lincong-pro/C-Properties/master/img/image-20210826123844225.png#pic_center)
+
+* ~~~cmake
+  ```cmake
+   find_library( GLFW_glfw_LIBRARY
+              NAMES
+              # Windows中查找库的名字,官方所提供的并没有这个名字
+                  glfw32 
+                  glfw32s 
+                  glfw
+                  glfw3
+              HINTS
+                  "${GLFW_LOCATION}/lib"
+                  "${GLFW_LOCATION}/lib/x64"
+                  "${GLFW_LOCATION}/lib-msvc110"
+                  "${GLFW_LOCATION}/lib-vc2012"
+                  "$ENV{GLFW_LOCATION}/lib"
+                  "$ENV{GLFW_LOCATION}/lib/x64"
+                  "$ENV{GLFW_LOCATION}/lib-msvc110"
+                  "$ENV{GLFW_LOCATION}/lib-vc2012"
+              PATHS
+                  "$ENV{PROGRAMFILES}/GLFW/lib"
+                  "${OPENGL_LIBRARY_DIR}"
+              DOC 
+                  "The GLFW library"
+          )
+  ```
+  ~~~
+
+##### 查找可执行程序
+
+```cmake
+find_program( RST2HTML_EXECUTABLE
+    NAMES
+        rst2html.py
+        rst2html
+        "D:/ProgramData/Miniconda3/pkgs/docutils-0.17.1-py39hcbf5309_0/Scripts/rst2html.py"
+    DOC
+        "The Python Docutils reStructuredText to HTML converter"
+)
+```
+
+#### CMake安装变量
+
+> 下面的变量是十分有用的变量，特别是用于程序的发布！
+
+```cmake
+CMAKE_INSTALL_PREFIX
+CMAKE_INSTALL_INCLUDEDIR
+CMAKE_INSTALL_BINDIR
+CMAKE_INSTALL_LIIBDIR
+```
+
