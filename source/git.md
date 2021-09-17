@@ -141,3 +141,51 @@ git push -u origin current_branch_name
 ```
 
 ### 本地分支下的文件操作
+
+#### 同时删除本地分支和远程分支下的指定文件夹
+
+```shell
+git rm -r directory
+git commit -m "delete local and remote directory"
+git push -u origin current_branch_name
+```
+
+#### 同时删除本地分支和远程分支下的指定文件
+
+```shell
+git rm -filename
+git commit -m "delete remote file and local file"
+git push -u origin current_branch_name
+```
+
+### 工作流切换
+
+> ​		有时候你会有这么一个需求，就是当你在某一个分支上进行操作的时候，你突然就想切换到另外一个分支执行一些工作，但是很厌烦的一点就是无法正常切换，系统总是要求你进行commit到本地，这样有一个缺点就是你会多很多无用的-m信息描述，git stash命令就可以很好的解决上述问题。
+
+#### 保存当前修改版本
+
+```shell
+git stash push # 推荐使用push，会有文件追踪之类的高级信息
+git stash [save] # 其中save为可选参数
+```
+
+#### 应用某个版本的修改
+
+```shell
+git stash apply stash@{1} # 应用某个stash存储版本（不删除）
+git stash pop stash@{2} # 应用某个stash存储版本（删除）
+```
+
+#### 显示所有的存储版本
+
+```shell
+git stash list
+```
+
+#### 删除存储版本
+
+```shell
+git stash clear # 删除所有的存储版本
+git stash drop stash@{0} # 删除指定版本
+```
+
