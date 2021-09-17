@@ -118,3 +118,26 @@ git push origin -d remoteBranchName
 git submodule add https://github.com/alicevision/AliceVision.git src/dependencies/AliceVision
 ```
 
+## 仓库文件操作
+
+### 远程分支下的文件操作
+
+#### 删除远程分支下的指定文件夹
+
+> 仅仅删除远程分支文件，不删除本地文件
+
+```shell
+git rm -r --cached directoryname
+git commit -m "delete remote directory"
+git push -u origin current_branch_name
+```
+
+#### 删除远程文件
+
+```shell
+git rm --cached filename
+git commit -m "delete remote file"
+git push -u origin current_branch_name
+```
+
+### 本地分支下的文件操作
