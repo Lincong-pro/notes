@@ -13,6 +13,7 @@ Hello sphinx
    throws
    string
    git
+   Qt
 
 
 
