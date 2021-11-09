@@ -166,6 +166,59 @@ https://www.runoob.com/cplusplus/cpp-web-programming.html
 >
 > 安装向导中只需要选择Debug Tools即可
 
+###### QtCreator标准化注释
+
+> > 总的来讲，还是第一种标准化注释比较美观
+>
+> **/****
+>
+> ```c++
+>     /**
+>      * @brief MoveableFramelessWindow
+>      * @param parent
+>      */
+> ```
+>
+> **/*!**
+>
+> ```c++
+>     /*!
+>      * \brief MoveableFramelessWindow
+>      * \param parent
+>      */
+> ```
+>
+> **//!**
+>
+> ```c++
+>     //!
+>     //! \brief MoveableFramelessWindow
+>     //! \param parent
+>     //!
+> ```
+>
+> **///**
+>
+> ```c++
+>     ///
+>     /// \brief MoveableFramelessWindow
+>     /// \param parent
+>     ///
+> ```
+>
+> 
+
+###### Qt配置mysql
+
+> **网址：https://downloads.mysql.com/archives/community/**
+>
+> **配置：**
+>
+> ```c++
+> QTPLUGIN += QSQLMYSQL
+> INCLUDEPATH += ""
+> ```
+
 #### QML
 
 > 1. **QML采用下面的命令运行qml文件**

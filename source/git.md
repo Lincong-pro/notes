@@ -189,3 +189,27 @@ git stash clear # 删除所有的存储版本
 git stash drop stash@{0} # 删除指定版本
 ```
 
+### 挂VPN且在网速慢的情况下出错
+
+#### server certificate verification failed.CAfile:/etc/ssl/certs/ca-certificates.crtCRLfile:none
+
+> **在执行git clone之前，在终端输入**
+>
+> * export GIT_SSL_NO_VERIFY=1
+
+#### error:RPC failed
+
+> **解决办法：git config http.postBuffer 524288000**
+>
+> **低版本git导致错误**
+
+#### GnuTLS recv error (-9): A TLS packet with unexpected length was received
+
+> **vpn环境下出现上述错误：**
+>
+> **解决办法：**
+>
+> 1. ifconfig eth0 mtu 1400
+> 2. GIT_CURL_VERBOSE=1
+> 3. apt-get install stunnel4
+

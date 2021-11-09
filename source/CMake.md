@@ -420,3 +420,21 @@ CMAKE_INSTALL_BINDIR
 CMAKE_INSTALL_LIIBDIR
 ```
 
+##### CMake中执行shell脚本的方法
+
+> ```cmake
+> # 尽量每一个命令使用不同的脚本
+> execute_process(COMMAND sh test.sh WORKING_DIRECTORY test.sh所在目录)
+> ```
+>
+> ```cmake
+> # 执行bat脚本,该命令中项目一定要有target且在同一目录
+> if(WIN32)
+> add_custom_command(TARGET <Your target>
+>                        POST_BUILD
+>                        COMMAND cmd //C <path to .bat file> <ARGS> )
+> endif()
+> ```
+>
+> 
+
